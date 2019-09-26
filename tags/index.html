@@ -11,7 +11,7 @@
 
     <title>
         
-        Zxy的博客 | Zxy&#39;s Blog
+        Tags - Zxy的博客 | Zxy&#39;s Blog
         
     </title>
 
@@ -59,13 +59,13 @@
                     <span>主页</span>
                 </a>
             </li>
-            <li >
+            <li  class=active >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
                     <span>标签</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>存档</span>
@@ -111,54 +111,59 @@
     
     <div class="index-middle">
         <!-- Main Content -->
-        
+        <div id='tag_cloud' class="tags">
+    
+    <a href="#文章标签一" title="文章标签一" rel="1">文章标签一</a>
+    
+    <a href="#文章标签二" title="文章标签二" rel="1">文章标签二</a>
+    
+</div>
 
+<!-- 标签列表 -->
 
-<!-- 归档列表 -->
-
-<div class="archives-container">
 
 <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
+                <span class="fa fa-tag listing-seperator" id="文章标签一">
+                    <span class="tag-text">文章标签一</span>
                 </span>
-    <ul>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>09-25</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/09/25/hello-world/">
-                        <span>
-                            Hello World
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>09-25</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/09/25/test/">
-                        <span>
-                            测试
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-
-    </ul>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/2019/09/25/test/">
+            <h2 class="post-title">
+                测试
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
 </div>
 
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="文章标签二">
+                    <span class="tag-text">文章标签二</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/2019/09/25/test/">
+            <h2 class="post-title">
+                测试
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
 </div>
+
 
     </div>
 </div>
