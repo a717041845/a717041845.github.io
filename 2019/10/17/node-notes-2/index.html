@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="人人都是诗人">
+    <meta name="keyword" content="腾讯">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        node学习笔记2 - Zxy的博客 | Zxy&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 人人都是诗人 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Zxy</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#node-js学习笔记2"><span class="toc-text">node.js学习笔记2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Buffer-缓冲区"><span class="toc-text">一、Buffer(缓冲区)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Buffer的操作"><span class="toc-text">Buffer的操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buffer的转换"><span class="toc-text">Buffer的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Buffer与字符串间的转换"><span class="toc-text">Buffer与字符串间的转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写入操作"><span class="toc-text">写入操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#读取操作"><span class="toc-text">读取操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他操作"><span class="toc-text">其他操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buffer-缓冲区-总结"><span class="toc-text">Buffer(缓冲区)总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、fs（文件系统）"><span class="toc-text">二、fs（文件系统）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#同步和异步调用"><span class="toc-text">同步和异步调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开和关闭文件"><span class="toc-text">打开和关闭文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打开状态"><span class="toc-text">打开状态</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写入文件"><span class="toc-text">写入文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单文件写入"><span class="toc-text">简单文件写入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同步文件写入"><span class="toc-text">同步文件写入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#异步文件写入"><span class="toc-text">异步文件写入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#流式文件写入"><span class="toc-text">流式文件写入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取文件"><span class="toc-text">读取文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单文件读取"><span class="toc-text">简单文件读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同步文件读取"><span class="toc-text">同步文件读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#异步文件读取"><span class="toc-text">异步文件读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#流式文件读取"><span class="toc-text">流式文件读取</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他操作-1"><span class="toc-text">其他操作</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 人人都是诗人 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        node学习笔记2
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-10-17 00:00:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#node.js" title="node.js">node.js</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="node-js学习笔记2"><a href="#node-js学习笔记2" class="headerlink" title="node.js学习笔记2"></a>node.js学习笔记2</h1><h2 id="一、Buffer-缓冲区"><a href="#一、Buffer-缓冲区" class="headerlink" title="一、Buffer(缓冲区)"></a>一、Buffer(缓冲区)</h2><p>• 从结构上看Buffer非常像一个数组，它的元素为16进制的两位数。（JS数组性能比其他语言的数组差）</p>
+<p>• 实际上一个元素就表示内存中的一个字节。</p>
+<p>• 实际上Buffer中的内存不是通过JavaScript分配的，而是在底层通过C++申请的。</p>
+<p>• 也就是我们可以直接通过Buffer来创建内存中的空间。</p>
+<h3 id="Buffer的操作"><a href="#Buffer的操作" class="headerlink" title="Buffer的操作"></a>Buffer的操作</h3><p>• 使用Buffer保存字符串：<br>&emsp;let str = “你好 atguigu”;<br>&emsp;let buf = Buffer.from(str , “utf-8”);</p>
+<p>• 创建指定大小的Buffer对象：<br>&emsp;let buf3 = Buffer.alloc(1024*8);</p>
+<h3 id="Buffer的转换"><a href="#Buffer的转换" class="headerlink" title="Buffer的转换"></a>Buffer的转换</h3><h4 id="Buffer与字符串间的转换"><a href="#Buffer与字符串间的转换" class="headerlink" title="Buffer与字符串间的转换"></a>Buffer与字符串间的转换</h4><p>– 支持的编码:<br>• ASCII、UTF-8、UTF-16LE/UCS-2、Base64、Binary、Hex</p>
+<p>– 字符串转Buffer<br>• Buffer.from(str , [encoding]);</p>
+<p>– Buffer转字符串<br>• buf.toString([encoding] , [start] , [end]);</p>
+<h4 id="写入操作"><a href="#写入操作" class="headerlink" title="写入操作"></a>写入操作</h4><p>• 向缓冲区中写入字符串<br>– buf.write(string[, offset[, length]][, encoding])</p>
+<p>• 替换指定索引位置的数据<br>– buf[index]</p>
+<p>• 将指定值填入到缓冲区的指定位置<br>– buf.fill(value[, offset[, end]][, encoding])</p>
+<h4 id="读取操作"><a href="#读取操作" class="headerlink" title="读取操作"></a>读取操作</h4><p>• 将缓冲区中的内容，转换为一个字符串返回<br>– buf.toString([encoding[, start[, end]]])</p>
+<p>• 读取缓冲区指定索引的内容<br>– buf[index]</p>
+<h4 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h4><p>• 复制缓冲区<br>– buf.copy(target[, targetStart[, sourceStart[, sourceEnd]]])</p>
+<p>• 对缓冲区切片<br>– buf.slice([start[, end]])</p>
+<p>• 拼接缓冲区<br>– Buffer.concat(list[, totalLength])</p>
+<h3 id="Buffer-缓冲区-总结"><a href="#Buffer-缓冲区-总结" class="headerlink" title="Buffer(缓冲区)总结"></a>Buffer(缓冲区)总结</h3><pre><code>- Buffer的结构和数组很像，操作的方法也和数组类似
+
+- 数组中不能存储二进制的文件，而Buffer就是专门用来存储二进制数据
+
+- 使用Buffer不需要引入模块，直接使用即可
+
+- 在Buffer中存储的都是二进制数据，但是在显示时都是以16进制的形式显示。buffer中每一个元素的范围是从00 - ff   0 - 255，即00000000 - 11111111
+
+- Buffer中的一个元素，占用内存的一个字节
+
+- Buffer的大小一旦确定，则不能修改，Buffer实际上是对底层内存的直接操作</code></pre><h2 id="二、fs（文件系统）"><a href="#二、fs（文件系统）" class="headerlink" title="二、fs（文件系统）"></a>二、fs（文件系统）</h2><p>• 在Node中，与文件系统的交互是非常重要的，服务器的本质就将本地的文件发送给远程的客户端</p>
+<p>• Node通过fs模块来和文件系统进行交互</p>
+<p>• 该模块提供了一些标准文件访问API来打开、读取、写入文件，以及与其交互。</p>
+<p>• 要使用fs模块，首先需要对其进行加载<br>– const fs = require(“fs”);</p>
+<h3 id="同步和异步调用"><a href="#同步和异步调用" class="headerlink" title="同步和异步调用"></a>同步和异步调用</h3><p>• fs模块中所有的操作都有两种形式可供选择同步和异步。</p>
+<p>• 同步文件系统会阻塞程序的执行，也就是除非操作完毕，否则不会向下执行代码。</p>
+<p>• 异步文件系统不会阻塞程序的执行，而是在操作完成时，通过回调函数将结果返回。</p>
+<h3 id="打开和关闭文件"><a href="#打开和关闭文件" class="headerlink" title="打开和关闭文件"></a>打开和关闭文件</h3><p>• 打开文件<br>– fs.open(path, flags[, mode], callback)<br>– fs.openSync(path, flags[, mode])</p>
+<p>• 关闭文件<br>– fs.close(fd, callback)<br>– fs.closeSync(fd)</p>
+<h4 id="打开状态"><a href="#打开状态" class="headerlink" title="打开状态"></a>打开状态</h4><p><img src="https://img-blog.csdnimg.cn/20190305185923280.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Nhbnh1ZXpoYW5n,size_16,color_FFFFFF,t_70" alt="enter description here"></p>
+<h3 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h3><p>• fs中提供了四种不同的方式将数据写入文件<br>– 简单文件写入<br>– 同步文件写入<br>– 异步文件写入<br>– 流式文件写入</p>
+<h4 id="简单文件写入"><a href="#简单文件写入" class="headerlink" title="简单文件写入"></a>简单文件写入</h4><p>• fs.writeFile(file, data[, options], callback)<br>• fs.writeFileSync(file, data[, options])<br>• 参数：<br>– file 文件路径<br>– data 被写入的内容，可以是String或Buffer<br>– options 对象，包含属性（encoding、mode、flag）<br>– callback 回调函数</p>
+<h4 id="同步文件写入"><a href="#同步文件写入" class="headerlink" title="同步文件写入"></a>同步文件写入</h4><p>• fs.writeSync(fd, buffer, offset, length[, position])<br>• fs.writeSync(fd, data[, position[, encoding]])<br>• 要完成同步写入文件，先需要通过openSync()打开文件来获取一个文件描述符，然后在通过writeSync()写入文件。<br>• 参数<br>– fd 文件描述符，通过openSync()获取<br>– data 要写入的数据（String 或 Buffer）<br>– offset buffer写入的偏移量<br>– length 写入的长度<br>– position 写入的起始位置<br>– encoding 写入编码</p>
+<h4 id="异步文件写入"><a href="#异步文件写入" class="headerlink" title="异步文件写入"></a>异步文件写入</h4><p>• fs.write(fd, buffer, offset, length[, position], callback)<br>• fs.write(fd, data[, position[, encoding]], callback)<br>• 要使用异步写入文件，先需要通过open()打开文件，然后在回调函数中通过write()写入。<br>• 参数：<br>– fd 文件描述符<br>– data 要写入的数据（String 或 Buffer）<br>– offset buffer写入的偏移量<br>– length 写入的长度<br>– position 写入的起始位置<br>– encoding 写入编码</p>
+<h4 id="流式文件写入"><a href="#流式文件写入" class="headerlink" title="流式文件写入"></a>流式文件写入</h4><p>• 往一个文件中写入大量数据时，最好的方法之一是使用流。<br>• 若要将数据异步传送到文件，首需要使用以下语法创建一个Writable对象：<br>– fs.createWriteStream(path[, options])<br>• path 文件路径<br>• options {encoding:””,mode:””,flag:””}<br>• 一旦你打开了Writable文件流，就可以使用write()方法来写入它，写入完成后，在调用end()方法来关闭流。</p>
+<h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><p>• fs中提供了四种读取文件的方式<br>– 简单文件读取<br>– 同步文件读取<br>– 异步文件读取<br>– 流式文件读取</p>
+<h4 id="简单文件读取"><a href="#简单文件读取" class="headerlink" title="简单文件读取"></a>简单文件读取</h4><p>• fs.readFile(file[, options], callback)<br>• fs.readFileSync(file[, options])<br>• 参数：<br>– file 文件路径或文件描述符<br>– options <object> | <string><br>– encoding <string> | <null> 默认 = null<br>– flag <string> 默认 = ‘r’<br>– callback 回调函数，有两个参数err 、data</string></null></string></string></object></p>
+<h4 id="同步文件读取"><a href="#同步文件读取" class="headerlink" title="同步文件读取"></a>同步文件读取</h4><p>• fs.readSync(fd, buffer, offset, length, position)<br>– 参数：<br>• fd 文件描述符<br>• buffer 读取文件的缓冲区<br>• offset buffer的开始写入的位置<br>• length 要读取的字节数<br>• position 开始读取文件的位置</p>
+<h4 id="异步文件读取"><a href="#异步文件读取" class="headerlink" title="异步文件读取"></a>异步文件读取</h4><p>• fs.read(fd, buffer, offset, length, position, callback)<br>– 参数：<br>• fd 文件描述符<br>• buffer 读取文件的缓冲区<br>• offset buffer的开始写入的位置<br>• length 要读取的字节数<br>• position 开始读取文件的位置<br>• callback 回调函数 参数err , bytesRead , buffer</p>
+<h4 id="流式文件读取"><a href="#流式文件读取" class="headerlink" title="流式文件读取"></a>流式文件读取</h4><p>• 从一个文件中读取大量的数据时，最好的方法之一就是流式读取，这样将把一个文件作为Readable流的形式打开。<br>• 要从异步从文件传输数据，首先需要通过以下语法创建一个Readable流对象：<br>– fs.createReadStream(path[, options])<br>• path 文件路径<br>• options {encoding:””,mode:””,flag:””}<br>• 当你打开Readable文件流以后，可以通过readable事件和read()请求，或通过data事件处理程序轻松地从它读出。</p>
+<h3 id="其他操作-1"><a href="#其他操作-1" class="headerlink" title="其他操作"></a>其他操作</h3><p>• 验证路径是否存在<br>– fs.exists(path，callback)<br>– fs.existsSync(path)<br>• 获取文件信息<br>– fs.stat(path, callback)<br>– fs.statSync(path)<br>• 删除文件<br>– fs.unlink(path, callback)<br>– fs.unlinkSync(path)<br>• 列出文件<br>– fs.readdir(path[, options], callback)<br>– fs.readdirSync(path[, options])<br>• 截断文件<br>– fs.truncate(path, len, callback)<br>– fs.truncateSync(path, len)<br>• 建立目录<br>– fs.mkdir(path[, mode], callback)<br>– fs.mkdirSync(path[, mode])<br>• 删除目录<br>– fs.rmdir(path, callback)<br>– fs.rmdirSync(path)<br>• 重命名文件和目录<br>– fs.rename(oldPath, newPath, callback)<br>– fs.renameSync(oldPath, newPath)<br>• 监视文件更改写入<br>– fs.watchFile(filename[, options], listener)</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/偶尔的小忧伤">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/ouerdexiaoyoushang">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/a717041845">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.10000h.top">10000H</a></span>
+        <span>/</span>
+        
+        <span><a href="https://niexiaotao.com">Xiaotao&#39;s Page</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://airclouds-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
+</html>
